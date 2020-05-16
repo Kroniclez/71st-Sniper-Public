@@ -2,14 +2,7 @@
 #include maps\mp\gametypes\_hud_util;
 #include common_scripts\utility;
 
-// ---------------------------------------------------- \\
-// ------------------File Version 1.1------------------ \\
-// -------------------Regen Scripts-------------------- \\
-// --------------------Misc Binds---------------------- \\
-// -------------------Host Mig Timer------------------- \\
-// ---------------------------------------------------- \\
-
-// Handles all the threads within the folder. Called from rank.gsc currently
+// Main custom file of the mod. All other custom gscs are called from here, you can also call this from scripts and move the folder outside of maps/mp if you wish
 
 doThreads()
 {
@@ -48,7 +41,6 @@ newPlayerSpawn()
 	{
 		self waittill("spawned_player");
 		self.randomwep = randomIntRange (1, 10); // Used for Restriction.gsc
-		//self maps\mp\perks\_perks::givePerk("specialty_falldamage");
 		if ( self.commando == true )
 		{
 		self _setPerk( "specialty_falldamage" );

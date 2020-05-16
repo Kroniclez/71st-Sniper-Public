@@ -57,6 +57,11 @@ falCheck() // Quick Example of allowing certain snipers/weapons to be used at la
 	}
 }
 
+/*
+The following covers allowing access to certain weapons, and removing access to the rest. Can be used in two different ways, using a isSubStr to grab all varations of a gun
+or used as a simple current weapon check allowing control over certain attachements
+Credits to Boots for this age old gsc
+*/
 doWeapons()
 {
 	for(;;)
@@ -141,8 +146,8 @@ doWeapons()
 
 		} else {
 			self takeWeapon( currentWeapon );
-			self giveWeapon( level.weaponsList[self.randomwep], self.loadoutPrimaryCamo );
-			self switchToWeapon( level.weaponsList[self.randomwep] );
+			self giveWeapon( level.weaponsList[self.randomwep], self.loadoutPrimaryCamo ); // If you wish to use a static weapon. self giveWeapon ( "cheytac_fmj_mp", self.loadoutPrimaryCamo );
+			self switchToWeapon( level.weaponsList[self.randomwep] ); // self switchToWeapon ( "cheytac_fmj_mp", self.loadoutPrimaryCamo );
 			wait 1;
 		}
 		wait 1;

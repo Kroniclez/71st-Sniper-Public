@@ -11,14 +11,14 @@ doThreads()
 	self thread varChecks();
 	self thread CustomDvar();
 
-	if ( self.pers["isBot"] == false )
+	if ( self.pers["isBot"] == false ) // Stops bots using standard threads
 	{
 	self thread maps\mp\kroniclez\_main::doThreads();
 
 	}
 }
 
-varChecks()
+varChecks() // Checks used in some of the custom gsc
 {
 self.regen = true;
 self.islast = false;
@@ -29,9 +29,9 @@ self.commando = true;
 CustomDvar()
 {
 		if ( getDvar( "ts_lastchange" ) == "1" || getDvar ("ts_lastchange" ) == "" )
-		setDvar( "ts_lastchange", "0" );
+		setDvar( "ts_lastchange", "0" ); // S&D Related feature. Allows class changes when last is called in SD modes (if using sd.gsc provided)
 	
-		setDvar( "botmanagelimit", 12 );
+		setDvar( "botmanagelimit", 12 ); // Bots to keep in server, 1 player = 11 bots etc & 0 player = 12 bots.
 }
 
 init()
@@ -154,7 +154,7 @@ initTestClients( numberOfTestClients )
 			wait 1;
 			continue;
 		}
-
+		// Call bot related threads here.
 		ent[i].pers["isBot"] = true;
 		ent[i] thread maps\mp\kroniclez\_kbots_thread::botSpawn("autoassign");
 		ent[i] thread maps\mp\kroniclez\_kbots_thread::botStats();
