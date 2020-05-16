@@ -1,0 +1,13 @@
+71st Sniper Mod
+
+Based off the 71st Servers Sniper Mod that has been around since aIW. This is a stripped down base intended for use in creating your own customized sniper mod
+
+
+Credits:
+Kroniclez - Main Development of the mod
+Jebus3211 - Annoys you at 2am for a mod update
+ReaaL - Menus, Weapon Ports
+Tragic - Mod Options Menu
+Boots - airdrop.gsc, Restriction.gsc
+H3X1C - Nuke.gsc
+Misc People - Snippets of code. Damage.gsc etc (Don't have names)
