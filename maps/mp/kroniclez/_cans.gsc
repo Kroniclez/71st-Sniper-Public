@@ -16,7 +16,7 @@ self thread doBarrettCan();
 self thread doInterCan();
 }
 
-cansList() // No Longer serves much of a purpose but I'm lazy.
+cansList() // No Longer serves a purpose. Can be used  for various things just leaving here from old code
 {
 
     level.cansList = [];
@@ -26,7 +26,7 @@ cansList() // No Longer serves much of a purpose but I'm lazy.
 
 }
 
-dropWeapon()
+dropWeapon() // Drops weapon... Not much else to say
 {
     self endon("disconnect");
     self endon("death");
@@ -51,25 +51,7 @@ dropWeapon()
 }
 }
 }
-
-doBarrettCan()
-{
-    self endon ("disconnect");
-
-    for(;;)
-    {
-        self notifyOnPlayerCommand( "barrett", "+barrett" );
-        self waittill( "barrett" );
-        wait .1;
-		self takeAllWeapons();
-	    self giveweapon ( self.primaryweapon, self.loadoutPrimaryCamo );
-        self giveWeapon ( level.cansList[1], self.loadoutPrimaryCamo ); 
-		self giveweapon ( "concussion_grenade_mp" );
-		self giveweapon ( self.loadoutEquipment );
-        wait 1;
-    }
-}
-
+// Custom Can Binds example
 doInterCan()
 {
     self endon ("disconnect");
@@ -80,10 +62,10 @@ doInterCan()
         self waittill( "inter" );
         wait .1;
 		self takeAllWeapons();
-	    self giveweapon ( self.primaryweapon, self.loadoutPrimaryCamo );
-        self giveWeapon ( level.cansList[2], self.loadoutPrimaryCamo ); 
-		self giveweapon ( "concussion_grenade_mp" );
-		self giveweapon ( self.loadoutEquipment );
+	    self giveweapon ( self.primaryweapon, self.loadoutPrimaryCamo ); // Grab Current equipped camo + Primary Weapon
+        self giveWeapon ( "cheytac_fmj_mp", self.loadoutPrimaryCamo ); // Give secondary Can option. (Do not use 2 Interventions)
+		self giveweapon ( "concussion_grenade_mp" ); // Give Stuns
+		self giveweapon ( self.loadoutEquipment ); // Replace existing Equipment
         wait 1;
     }
 }
